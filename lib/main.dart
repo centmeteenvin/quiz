@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz/firebase/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:quiz/routes.dart';
+import 'package:quiz/theme.dart';
 
 // fierbase web id: 1:674191127017:web:b0f2328d3e3446a4579b78
 
@@ -20,6 +21,8 @@ class FlutterQuiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: appTheme,
       routes: appRoutes,
     );
   }
