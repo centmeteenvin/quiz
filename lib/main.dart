@@ -3,7 +3,7 @@ import 'package:quiz/firebase/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:quiz/routes.dart';
 import 'package:quiz/theme.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 // fierbase web id: 1:674191127017:web:b0f2328d3e3446a4579b78
 
 void main() async {
