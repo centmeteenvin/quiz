@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+// fierbase web id: 1:674191127017:web:b0f2328d3e3446a4579b78
+
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
