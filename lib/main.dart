@@ -21,7 +21,6 @@ class FlutterQuiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: appRoutes,
-      home: const Scaffold(),
     );
   }
 }
