@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 // fierbase web id: 1:674191127017:web:b0f2328d3e3446a4579b78
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
