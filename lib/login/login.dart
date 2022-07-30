@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/services.dart';
 import 'package:quiz/services/auth.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -10,20 +11,28 @@ class LoginScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        padding:  EdgeInsets.symmetric(horizontal: size.width*0.23),
+        padding: EdgeInsets.symmetric(horizontal: size.width * 0.23, vertical: size.height*0.2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-             FlutterLogo(
-              size: size.shortestSide*0.30,
+            FlutterLogo(
+              size: size.shortestSide * 0.30,
             ),
-            Flexible(child: LoginButton(
-              color: Colors.deepPurple,
-              loginMethod: AuthService().anonLogin,
-              icon: FontAwesomeIcons.userNinja,
-              text: "Continue as guest",
-            ),)
+            Flexible(
+              child: LoginButton(
+                color: Colors.deepPurple,
+                loginMethod: AuthService().anonLogin,
+                icon: FontAwesomeIcons.userNinja,
+                text: "Continue as guest",
+              ),
+            ),
+            LoginButton(
+              color: Colors.blue,
+              icon: FontAwesomeIcons.google,
+              text: "Sign in with google",
+              loginMethod: AuthService().googleLogin,
+            ),
           ],
         ),
       ),
