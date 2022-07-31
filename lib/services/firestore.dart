@@ -33,4 +33,16 @@ class FireStoreService {
     });
   }
 
+  Future<void> updateUserReport(Quiz quiz)  {
+    var user = AuthService().user.currentUser!;
+    var ref = _db.collection('reports').doc(user.uid);
+    var data = {
+      'total': FieldValue.increment(1),
+      'topics': {
+        quiz.topic: FieldValue.arrayUnion([quiz.id]),
+      }
+    };
+    return ref.set( data, SetOptions(merge: true));
+  }
+
 }
