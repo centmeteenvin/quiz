@@ -22,4 +22,15 @@ class FireStoreService {
     return Quiz.fromJson(snapshot.data() ?? {});
   }
 
+  Stream<Report> streamReport() {
+    return AuthService().userStream.switchMap((user){
+      if (user != null) {
+        var ref = _db.collection('reports').doc(user.uid);
+        return ref.snapshots().map((doc) => Report.fromJson(doc.data()!));
+      } else {
+        return Stream.fromIterable([Report()]);
+      }
+    });
+  }
+
 }
