@@ -18,7 +18,7 @@ class TopicsScreen extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingScreen();
         } else if (snapshot.hasError) {
-          return const ErrorMessage(message: snapshot.hasError.toString());
+          return const ErrorMessage(message:  snapshot.hasError.toString());
         } else if (snapshot.hasData) {
 
         } else {
