@@ -18,11 +18,25 @@ class TopicsScreen extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingScreen();
         } else if (snapshot.hasError) {
-          return const ErrorMessage(message:  snapshot.hasError.toString());
+          return ErrorMessage(message: snapshot.hasError.toString());
         } else if (snapshot.hasData) {
-
+          var topics = snapshot.data!;
+          return Scaffold(
+            appBar: AppBar(
+              title: const Text('Topics'),
+              backgroundColor: Colors.deepPurple,
+            ),
+            body: GridView.count(
+            crossAxisCount: 2,
+            primary: false,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            children: topics.map((topic) => Text(topic.title)).toList(), 
+          ),
+            bottomNavigationBar: const BottomNavBar(),
+          );
         } else {
-
+          return const Text('No topics found in FireStore, check database');
         }
       },
     );
