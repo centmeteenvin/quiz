@@ -6,6 +6,8 @@ import 'package:quiz/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 // fierbase web id: 1:674191127017:web:b0f2328d3e3446a4579b78
 
+// flutter run -d chrome --web-hostname localhost --web-port 5000
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
