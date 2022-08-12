@@ -4,6 +4,7 @@ import 'package:quiz/services/models.dart';
 import 'package:quiz/shared/bottom_navbar.dart';
 import 'package:quiz/shared/error.dart';
 import 'package:quiz/shared/loading.dart';
+import 'package:quiz/topics/drawer.dart';
 import 'package:quiz/topics/topic_item.dart';
 
 class TopicsScreen extends StatelessWidget {
@@ -26,14 +27,15 @@ class TopicsScreen extends StatelessWidget {
               backgroundColor: Colors.deepPurple,
             ),
             body: GridView.count(
-            crossAxisCount: 2,
-            primary: false,
-            padding: const EdgeInsets.all(20),
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 12,
-            children: topics.map((topic) =>  TopicItem(topic: topic)).toList(), 
-          ),
+              crossAxisCount: 2,
+              primary: false,
+              padding: const EdgeInsets.all(20),
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 12,
+              children: topics.map((topic) => TopicItem(topic: topic)).toList(),
+            ),
             bottomNavigationBar: const BottomNavBar(),
+            drawer: TopicDrawer(topics: topics),
           );
         } else {
           return const Text('No topics found in FireStore, check database');
