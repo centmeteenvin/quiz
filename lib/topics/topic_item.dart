@@ -62,30 +62,35 @@ class TopicScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ListView(
-        children: [
-          Hero(
-            tag: topic.img,
-            child: Image.asset('assets/covers/${topic.img}'),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              topic.title,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+      body: Center(
+        child: SizedBox(
+          width: 1000,
+          child: ListView(
+            children: [
+              Hero(
+                tag: topic.img,
+                child: Image.asset('assets/covers/${topic.img}'),
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  topic.title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                  ),
+                ),
+              ),
+              Text(
+                topic.description,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+              QuizList(topic: topic),
+            ],
           ),
-          Text(
-            topic.description,
-            style: const TextStyle(
-              fontSize: 20,
-            ),
-          ),
-          QuizList(topic: topic),
-        ],
+        ),
       ),
     );
   }
