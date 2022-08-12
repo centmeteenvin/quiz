@@ -14,9 +14,8 @@ class TopicItem extends StatelessWidget {
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (BuildContext context) => TopicScreen(topic: topic))
-            );
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => TopicScreen(topic: topic)));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -34,7 +33,7 @@ class TopicItem extends StatelessWidget {
               Flexible(
                 child: Center(
                   child: Padding(
-                    padding: 	const EdgeInsets.all( 0),
+                    padding: const EdgeInsets.all(0),
                     child: Text(
                       topic.title,
                       style: const TextStyle(
@@ -62,13 +61,30 @@ class TopicScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(topic.title),
-        centerTitle: true,
-      ),
-      body: Hero(
-        tag: topic.img,
-        child: Image.asset('assets/covers/${topic.img}'),
+      appBar: AppBar(),
+      body: ListView(
+        children: [
+          Hero(
+            tag: topic.img,
+            child: Image.asset('assets/covers/${topic.img}'),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              topic.title,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
+            ),
+          ),
+          Text(
+            topic.description,
+            style: const TextStyle(
+              fontSize: 20,
+            ),
+          )
+        ],
       ),
     );
   }
