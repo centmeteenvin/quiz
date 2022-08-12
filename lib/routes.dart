@@ -1,4 +1,3 @@
-import 'dart:js';
 
 import 'package:quiz/about/about.dart';
 import 'package:quiz/home/home.dart';
