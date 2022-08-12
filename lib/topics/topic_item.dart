@@ -83,7 +83,8 @@ class TopicScreen extends StatelessWidget {
             style: const TextStyle(
               fontSize: 20,
             ),
-          )
+          ),
+          QuizList(topic: topic),
         ],
       ),
     );
